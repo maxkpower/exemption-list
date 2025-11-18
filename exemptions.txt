@@ -1,0 +1,9 @@
+# Bitwarden Phishing Detection Exemptions List
+# This file contains domains that should be excluded from phishing detection
+# One domain per line, no wildcards
+# Lines starting with # are comments and will be ignored
+
+# Current false positives
+https://app.smartsheet.eu
+
+# End of exemptions list

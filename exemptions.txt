@@ -7,5 +7,6 @@
 https://app.smartsheet.eu
 app.smartsheet.com
 app.docusign.com
+account.docusign.com
 
 # End of exemptions list

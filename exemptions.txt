@@ -81,3 +81,9 @@
 .smartsheet.com
 .smartsheet.eu
 .docusign.com
+.reputation.com
+.mycurricula.com
+.gusto.com
+.steamcommunity.com
+.google.com
+.huntress.com

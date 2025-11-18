@@ -6,5 +6,6 @@
 # Current false positives
 https://app.smartsheet.eu
 app.smartsheet.com
+app.docusign.com
 
 # End of exemptions list

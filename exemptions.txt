@@ -1,12 +1,83 @@
-# Bitwarden Phishing Detection Exemptions List
-# This file contains domains that should be excluded from phishing detection
-# One domain per line, no wildcards
-# Lines starting with # are comments and will be ignored
+# ============================================================================
+# BITWARDEN PHISHING DETECTION EXEMPTIONS LIST
+# ============================================================================
+#
+# This file contains domains that should be excluded from phishing detection.
+# Domains in this list will override the phishing database and never be 
+# flagged as phishing sites.
+#
+# ============================================================================
+# FORMAT & SYNTAX
+# ============================================================================
+#
+# • One domain per line
+# • Lines starting with # are comments (ignored)
+# • Empty lines are ignored
+# • URLs with protocols (https://) are automatically cleaned
+# • Paths and query strings are automatically stripped
+#
+# ============================================================================
+# MATCHING RULES
+# ============================================================================
+#
+# EXACT MATCH (no prefix):
+#   example.com
+#   → Matches ONLY: example.com
+#   → Does NOT match: www.example.com, app.example.com
+#
+# SUBDOMAIN WILDCARD (. prefix):
+#   .example.com
+#   → Matches: example.com (base domain)
+#   → Matches: app.example.com (subdomain)
+#   → Matches: www.example.com (subdomain)
+#   → Matches: account.example.com (subdomain)
+#   → Matches: deep.nested.example.com (nested subdomain)
+#   → Does NOT match: example.net (different TLD)
+#   → Does NOT match: fakeexample.com (different domain)
+#
+# ============================================================================
+# EXAMPLES & USE CASES
+# ============================================================================
+#
+# Use Case 1: Organization with multiple subdomains
+#   Problem: Users access app.company.com, account.company.com, admin.company.com
+#   Solution: Add .company.com (one entry covers all)
+#
+# Use Case 2: Single specific subdomain only
+#   Problem: Only portal.example.com should be exempted
+#   Solution: Add portal.example.com (exact match)
+#
+# Use Case 3: URL shortener (no subdomains)
+#   Problem: bit.ly is flagged but is legitimate
+#   Solution: Add bit.ly (exact match, no wildcard needed)
+#
+# ============================================================================
+# BEST PRACTICES
+# ============================================================================
+#
+# ✅ DO:
+#   • Use wildcard (.) for organizations with multiple subdomains
+#   • Document WHY a domain is exempted (add comment above entry)
+#   • Group related domains together with section headers
+#   • Regularly review and remove outdated entries
+#   • Test changes in development before deploying
+#
+# ❌ DON'T:
+#   • Don't exempt entire TLDs (e.g., .com is too broad and won't work)
+#   • Don't add domains without understanding why they're flagged
+#   • Don't use wildcards for single-subdomain use cases
+#   • Don't include protocols (https://) - they're auto-removed but avoid confusion
+#
+# ============================================================================
+# SECURITY WARNING
+# ============================================================================
+#
+# ⚠️  Adding a domain to this list disables phishing protection for it!
+# ⚠️  Only add domains you trust completely
+# ⚠️  Verify domain ownership before adding
+#
+# ============================================================================
 
-# Current false positives
-https://app.smartsheet.eu
-app.smartsheet.com
-app.docusign.com
-account.docusign.com
-
-# End of exemptions list
+.smartsheet.com
+.smartsheet.eu
+.docusign.com
